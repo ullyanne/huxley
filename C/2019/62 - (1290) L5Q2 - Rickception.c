@@ -30,4 +30,6 @@ int main()
 	resp = ricky_morty(n, t, 0);
 
 	printf("%d\n", resp);
+	
+	return 0;
 }
