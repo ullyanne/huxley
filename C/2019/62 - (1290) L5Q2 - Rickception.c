@@ -11,13 +11,13 @@ int ricky_morty (int n, int t, int c)
 		{
 			n += (n%5);
 
-			ricky_morty(n, t, c+1);
+			return ricky_morty(n, t, c+1);
 		} 
 			else 
 			{
 				n+= 3;
 
-				ricky_morty(n, t, c+1);
+				return ricky_morty(n, t, c+1);
 			}
 }
 
