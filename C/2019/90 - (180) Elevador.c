@@ -3,7 +3,6 @@
 int main()
 {
     int n, c, i; //n. de leituras e capacidade + contador
-    int k = 0; //sinalizador
     int acumulador = 0;
     
     scanf("%d%d", &n, &c);
@@ -18,19 +17,12 @@ int main()
 
         if(acumulador > c) //se o acumulador for maior que a capacidade
         {
-            k = 1;
+            printf("S\n");
+            return 0;
         }
     }
 
-    if(k == 1)
-    {
-        printf("S\n");
-    }
-    else
-    {
-        printf("N\n");
-    }
-
+    printf("N\n");
 
 
     return 0;
