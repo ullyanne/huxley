@@ -8,7 +8,7 @@ int multtres(int y) //função que retorna o próximo múltiplo de três
     return y;
 }
 
-int potencia(int expoente) //função que muda o expoente de um número com base 2, retorna o valor desse número
+int potencia(int expoente) //função que muda o expoente de um número com base 2 e retorna o valor desse número
 {
     expoente = expoente+1; 
     
