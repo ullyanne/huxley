@@ -7,7 +7,7 @@ int maiorvalor(int x[])
 
     for(i = 0; i < 6; i++)
     {
-        if(x[i] >= maior)
+        if(x[i] > maior)
         {
             maior = x[i];
         }
@@ -23,7 +23,7 @@ int menorvalor(int y[])
 
     for(i = 0; i < 6; i++)
     {
-        if(y[i] <= menor)
+        if(y[i] < menor)
         {
             menor = y[i];
         }
