@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    int dias, i, j;
+
+    float reais; //gastos em cada dia
+    float totalreais = 0;
+   
+    float kg; //kg em cada dia
+    float totalkg = 0; 
+
+    char frutas[1000]; //string contendo as frutas compradas, cada uma pesa 1kg
+    
+    scanf("%d", &dias);
+
+    for(i = 0; i < dias; i++)
+    {
+        scanf("%f", &reais);
+        totalreais += reais;
+
+        getchar(); //para consumir o \n do scanf passado e não atrapalhar o fgets
+
+        fgets(frutas, 1000, stdin);
+            
+            frutas[strlen(frutas) -1] = '\0'; //para tirar o \n que o fgets põe
+        
+        kg = 1; //ao menos uma fruta será comprada
+        
+        for(j = 0; j < strlen(frutas); j++) //vai percorrer toda a string, se achar um espaço, encontrará uma nova fruta
+        {   
+            if(frutas[j] == ' ')
+            {   
+                kg++;
+            }
+        }
+
+        totalkg += kg;
+
+        printf("dia %d: %.0f kg\n", i+1, kg);
+    }
+
+    printf("%.2f kg por dia\n", totalkg/dias);
+    printf("R$ %.2f por dia\n", totalreais/dias);
+
+    return 0;
+}
