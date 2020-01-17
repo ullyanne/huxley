@@ -38,7 +38,6 @@ int validade(int matriz[3][3])
     {   
         valido = -1; //a diag. secundária é válida (-1) até provar o contrário
 
-    //diagonal secundária
 
         //essas abaixos fazem parte da diagonal secundária, e, para a matriz ser válida, elas têm que ser iguais a 1
         if(matriz[0][2] != 1) 
@@ -64,7 +63,7 @@ int validade(int matriz[3][3])
             {
                 if(i == 0)
                 {   
-                    if(j != 2) // excluindo [2][0] porque faz parte da diagonal secundária
+                    if(j != 2) // excluindo [0][2] porque faz parte da diagonal secundária
                     {
                         if(matriz[i][j] != 0)
                         {         
