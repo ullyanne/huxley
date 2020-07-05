@@ -7,7 +7,7 @@ void virada(int* m, int* h, int* cont)
     {
         //quanto falta pra completar 1h?
         *cont += (60 - m[0]);
-        //add 1h, depois convertendo pra minutos
+        //add 1h, vendo quanto falta pra 0:00 e depois convertendo pra minutos
         *cont += (24 - (1 + h[0])) * 60;
     }
     else
