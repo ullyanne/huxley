@@ -41,7 +41,7 @@ int main()
 
 //busca
         for(i = 0; i < qt; i++)
-            //o nome está na lista?
+            //o nome está no dicionário?
             if(strcmp(name, lista[i].nome) == 0)
             {
                 scanf("%s", obj);
