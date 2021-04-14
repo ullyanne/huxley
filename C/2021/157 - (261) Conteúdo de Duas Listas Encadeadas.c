@@ -30,7 +30,7 @@ int search(struct node* head, struct node* head2)
     struct node* ptr2 = head2;
     int signal = 0;
 
-    //percorrendo principalmente a lista 1, do conjunto
+    //percorrendo principalmente a lista 1, que é a lista do conjunto
     while(ptr != NULL && ptr2 != NULL)
     {
         /*como estará ordenado, se o primeiro elemento da lista 1 for maior que o da lista 2, já
@@ -38,15 +38,17 @@ int search(struct node* head, struct node* head2)
         if(ptr->item > ptr2->item)
             return 0;
         
-        //sinaliza que foi encontrado ao menos um item da lista 2, e ainda +1 slot da lista 2
+        /*sinaliza que foi encontrado ao menos um item da lista 2, anda +1 slot da lista 2
+        e volta pro início da lista 1*/
         if(ptr->item == ptr2->item)
         {
             signal = 1;
             ptr2 = ptr2->next;
+            ptr = head;
         }
-
-        //anda um slot da lista 1
-        ptr = ptr->next;
+        else
+            //anda um slot da lista 1
+            ptr = ptr->next;
 
         //caso não tenha encontrado ao menos um item até chegar no final da lista 1
         if(ptr == NULL && signal == 0)
