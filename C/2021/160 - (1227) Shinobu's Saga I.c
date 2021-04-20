@@ -100,8 +100,8 @@ void sum(struct stack** stack)
 
 void subtract(struct stack** stack)
 {
-    int difference = (pop(*stack)->item *-1);
-    difference += pop(*stack)->item;
+    int difference = pop(*stack)->item;
+    difference = pop(*stack)->item - difference;
     push(stack, difference);
 }
 
