@@ -126,6 +126,7 @@ int main()
 
     for(int i = 1; i < 3; i++)
     {
+        //como o número pode ser maior ou igual a 10, lê-se em string
         scanf("%d", &num);
 
         for(int j = 0; j < num; j++)
@@ -141,6 +142,7 @@ int main()
             else if(!strcmp(charac, "/"))
                 divide(&stack);
             else
+            //convertendo a string para número com a função atoi
                 push(&stack, atoi(charac));
         }
         printf("Coordenada %d: ", i);
