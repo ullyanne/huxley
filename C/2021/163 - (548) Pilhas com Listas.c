@@ -158,4 +158,6 @@ int main()
     
     free(stack);
     free(head);
+
+    return 0;
 }
