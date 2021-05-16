@@ -33,7 +33,7 @@ void preOrder(struct binaryTree* bt)
     }
 }
 
-/*QUEUE-------------*/
+/*QUEUE CUJOS NÓS SÃO NÓS DE ÁRVORE-------------*/
 struct nodeQ
 {
     struct binaryTree* bt;
@@ -169,6 +169,7 @@ void adjList(struct node** adjacencyList, int* values, int times)
     }
 }
 
+//criar árvore a partir de lista de adjacência
 struct binaryTree* createTree(struct node** adjacencyList, int* values, int node)
 {
     if(node != -1)
@@ -193,6 +194,7 @@ void BFS(struct binaryTree* bt, int* currentLevel)
 
     while(!isEmpty(queue))
     {
+         //checa tudo que está no mesmo nível de profundidade. uma vez por profundidade
         if(queue->head->bt->level > *currentLevel)
         {
             *currentLevel+=1;

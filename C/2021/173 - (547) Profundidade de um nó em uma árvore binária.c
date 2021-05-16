@@ -27,11 +27,11 @@ struct binaryTree* addFromString(char* arvore, int* index)
 {
     struct binaryTree* root = NULL;
     
-    if (arvore[*index] == '(') 
+    if(arvore[*index] == '(') 
     {
         *index += 1;
         
-        if (arvore[*index] == ')') 
+        if(arvore[*index] == ')') 
         {
             *index += 1;
             return NULL;
@@ -40,16 +40,19 @@ struct binaryTree* addFromString(char* arvore, int* index)
         char digits[20];
         int i;
         
+        //coletando os dígitos no formato char
         for(i = 0; arvore[*index] != '('; i++, *index+=1)
-            digits[i] = arvore[*index]; //adicionando no final da string
-
+            digits[i] = arvore[*index]; 
+        
+        //adicionando no final da string
         digits[i] = '\0';
 
+        //criar um nó a partir do cast nos dígitos
         root = create(atoi(digits));
         root->left = addFromString(arvore, index);
         root->right = addFromString(arvore, index);
     }
-
+    //Adiciono um valor no meu indice para poder continuar a adicionar os meus filhos
     *index += 1;
 
     return root;
@@ -65,7 +68,7 @@ void preOrder(struct binaryTree* bt)
     }
 }
 
-/*QUEUE----------------------*/
+/*QUEUE CUJOS NÓS SÃO NÓS DE ÁRVORE----------------------*/
 struct node
 {
     struct binaryTree* bt;
@@ -157,11 +160,12 @@ void BFS(struct binaryTree* bt, int* currentLevel, int value, struct queue* queu
 
     while(!isEmpty(queue))
     {
+        //checa tudo que está no mesmo nível de profundidade
         if(queue->head->bt->level > *currentLevel)
         {
             *currentLevel+=1;
             ptr = queue->head;
-
+            
             while(ptr != NULL && ptr->bt->level == *currentLevel)
             {
                 if(ptr->bt->item == value)
@@ -174,6 +178,7 @@ void BFS(struct binaryTree* bt, int* currentLevel, int value, struct queue* queu
             }
         }
 
+        //empilha os filhos à esquerda e direita
         if(queue->head->bt->left != NULL)
         {
             queue->head->bt->left->level = queue->head->bt->level+1;
@@ -195,6 +200,8 @@ int main()
 {
     struct binaryTree* root = NULL;
     struct queue* queue = createQueue();
+    
+    //string pela qual a árvore será criada
     char arvore[100000];
     char carac;
     int i = 0, value;
@@ -206,7 +213,7 @@ int main()
             arvore[i] = carac;
             i++;
         }
-
+        
     arvore[i] = '\0';
     
     /*criando árvore a partir de uma string*/

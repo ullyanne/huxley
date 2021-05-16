@@ -25,11 +25,11 @@ struct binaryTree* addFromString(char* arvore, int* index)
 {
     struct binaryTree* root = NULL;
     
-    if (arvore[*index] == '(') 
+    if(arvore[*index] == '(') 
     {
         *index += 1;
         
-        if (arvore[*index] == ')') 
+        if(arvore[*index] == ')') 
         {
             *index += 1;
             return NULL;
@@ -39,8 +39,9 @@ struct binaryTree* addFromString(char* arvore, int* index)
         int i;
         
         for(i = 0; arvore[*index] != '('; i++, *index+=1)
-            digits[i] = arvore[*index]; //adicionando no final da string
-
+            digits[i] = arvore[*index]; 
+        
+        //adicionando no final da string
         digits[i] = '\0';
 
         root = createNode(atoi(digits));
